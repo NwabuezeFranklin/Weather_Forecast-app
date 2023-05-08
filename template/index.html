@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+           <input type="text" name="city" placeholder="City">
+           <button type="submit">Submit</button>
+        </form>
+        {% if weather %}
+            <div class="city">
+              <h1> {{ weather.city }} </h1>
+              <h2> {{ weather.temperature }} </h2>
+              <p> {{weather.description }} </p>
+              <img src="http://openweathermap.org/img/w/{{ weather.icon}}.png" alt="{{ weather.description}}">  
+            </div>
+        {% endif %}
+
+
+        {% if future %}
+        <div class="city">
+            {% for forecast in future %}
+                <h3> {{ forecast.day }} </h3>
+                <p> {{forecast.min_temp }}°C-{{forecast.max_temp}}°C </p>
+                <p> {{forecast.description }} </p>
+                <img src="http://openweathermap.org/img/w/{{ forecast.icon}}.png" alt="{{ forecast.description}}">
+
+            {% endfor %}
+          </div>    
+        {% endif %}
+        <script src="" async defer></script>
+    </body>
+</html>
