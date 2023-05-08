@@ -4,6 +4,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
+
+
 # https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=api_key
 def index(request):
     api_key = '610846df89434a038984b7112d215085'
