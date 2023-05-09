@@ -8,7 +8,7 @@ from django.shortcuts import render
 
 # https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=api_key
 def index(request):
-    api_key = '610846df89434a038984b7112d215085'
+    api_key = 'your api key'
     current = 'https://api.openweathermap.org/data/2.5/weather?q={}&appid={}'
     future = 'https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude=current,minutely,hourly,alerts&appid={}'
     
@@ -49,7 +49,7 @@ def fetch(city, api_key, current, future):
 def tomorrow(request):
     if request.method == 'POST':
         city = request.POST['city']
-        api_key = '5ndKkWpsvIMaRle8qwAGXZsiChWoZA4l'
+        api_key = 'your api_key'
         current = "https://api.tomorrow.io/v4/weather/realtime?location={}&apikey={}"
         response = requests.get(current.format(city, api_key)).json()
         weather, future = fetch(city, api_key, current, future)
